@@ -1,47 +1,1318 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="LyPro AI" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.lyproai.com" />
-    <meta property="og:image" content="https://www.lyproai.com/logo192.png" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Terracotta | Salón Spa Rionegro</title>
+<meta name="description" content="Salón Spa en Rionegro, Llano Grande. Barbería, cejas, pestañas, depilación y más. Agenda tu cita en línea con confirmación por WhatsApp.">
+<meta name="keywords" content="salon spa rionegro, barberia rionegro, cejas rionegro, pestañas rionegro, llano grande antioquia">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#C9A84C">
+<link rel="icon" type="image/png" href="terracotta-logo.png">
+<link rel="apple-touch-icon" href="terracotta-logo.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://terracotasalonspa.com/">
+<meta property="og:title" content="Terracotta | Salón Spa Rionegro">
+<meta property="og:description" content="Spa de uñas en Cali, Ciudad Jardín. Manicure, pedicure, acrílicas y más. Agenda tu cita en línea.">
+<meta property="og:image" content="https://terracotasalonspa.com/terracotta-logo.png">
+<meta property="og:locale" content="es_CO">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terracotta | Salón Spa Rionegro">
+<meta name="twitter:description" content="Spa de uñas en Cali, Ciudad Jardín. Agenda tu cita en línea.">
+<meta name="twitter:image" content="https://terracotasalonspa.com/terracotta-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; background: #0A0A0A; }
+body { font-family: 'Nunito Sans', sans-serif; background: #0A0A0A; color: #F5F0E8; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+#page-loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s;}
+#page-loader .loader-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#C9A84C;margin-bottom:20px;letter-spacing:2px;}
+#page-loader .loader-spinner{width:36px;height:36px;border:3px solid #1a1208;border-top:3px solid #C9A84C;border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+#page-loader.oculto{opacity:0;pointer-events:none;}
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>PrestiYa</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: #C9A84C; border-bottom: 1px solid #d4888680; }
+.nav-cta { background: #111111; color: #C9A84C; padding: 10px 20px; border-radius: 50px; font-size: 0.82rem; font-weight: 500; text-decoration: none; }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+.hero { padding: 160px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(248, 213, 219, 0.55); z-index: 1; }
+.hero > *:not(.hero-video):not(.hero-overlay) { position: relative; z-index: 2; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.1); border: 1px solid #C9A84C; border-radius: 50px; padding: 7px 16px; font-size: 0.75rem; color: #C9A84C; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 24px; }
+.hero-dot { width: 6px; height: 6px; background: #C9A84C; border-radius: 50%; display: inline-block; }
+.hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; line-height: 1.1; color: #F5F0E8; margin-bottom: 20px; }
+.hero-title em { font-style: italic; color: #C9A84C; }
+.hero-sub { font-size: 0.95rem; color: #9A8F7A; line-height: 1.7; margin-bottom: 32px; }
+.hero-actions { display: flex; gap: 16px; align-items: center; margin-bottom: 48px; justify-content: center; }
+.btn-primary { background: #C9A84C; color: #ffffff; padding: 14px 28px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-block; }
+.btn-ghost { color: #C9A84C; font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+.hero-stats { display: flex; gap: 32px; padding-top: 32px; border-top: 1px solid #8B6914; justify-content: center; }
+.stat-num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: #fff; line-height: 1; }
+.stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+.banner-wrap { background: #C9A84C; padding: 16px 0; overflow: hidden; }
+.banner-track { display: flex; animation: marquee 22s linear infinite; white-space: nowrap; }
+.banner-item { display: inline-flex; align-items: center; gap: 12px; padding: 0 32px; color: #1a1208; font-size: 0.82rem; letter-spacing: 0.8px; text-transform: uppercase; flex-shrink: 0; }
+.banner-dot { color: #8B6914; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.section { padding: 72px 24px; background: #0A0A0A; }
+.section-nude { padding: 72px 24px; background: #1a1208; }
+.section-dark { padding: 72px 24px; background: #1a1a1a; }
+.sec-label { font-size: 0.75rem; color: #C9A84C; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; margin-bottom: 10px; }
+.sec-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.2rem; color: #F5F0E8; line-height: 1.2; margin-bottom: 40px; }
+.sec-title em { font-style: italic; color: #C9A84C; }
+.sec-title-w { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.2rem; color: #ffffff; line-height: 1.2; margin-bottom: 16px; }
+.sec-title-w em { font-style: italic; color: #8B6914; }
+
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.service-card { background: #111111; border-radius: 20px; overflow: hidden; border: 1px solid #8B6914; display: flex; flex-direction: column; }
+.svc-img { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.si1 { background: linear-gradient(135deg, #f9e4dc, #8B6914); }
+.si2 { background: linear-gradient(135deg, #e8d5f0, #c9a8e0); }
+.si3 { background: linear-gradient(135deg, #fce8d5, #f0c4a0); }
+.si4 { background: linear-gradient(135deg, #d5e8f0, #a8cce0); }
+.si5 { background: linear-gradient(135deg, #f0e8d5, #e0cca8); }
+.si6 { background: linear-gradient(135deg, #d5f0e8, #a8e0cc); }
+.svc-body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.svc-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; color: #F5F0E8; margin-bottom: 4px; }
+.svc-desc { font-size: 0.78rem; color: #9A8F7A; line-height: 1.5; margin-bottom: 10px; }
+.svc-foot { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; flex: 1; justify-content: flex-end; }
+.svc-price { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: #C9A84C; font-weight: 700; letter-spacing: -0.3px; }
+.svc-dur { font-size: 0.72rem; color: #9A8F7A; }
+
+.pros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pro-card { background: #111111; border-radius: 20px; padding: 28px 20px; text-align: center; border: 1px solid #8B6914; }
+.pro-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid #8B6914; }
+.pa1 { background: linear-gradient(135deg, #f9e4dc, #8B6914); }
+.pa2 { background: linear-gradient(135deg, #e8d5f0, #c9a8e0); }
+.pa3 { background: linear-gradient(135deg, #fce8d5, #f0c4a0); }
+.pa4 { background: linear-gradient(135deg, #d5f0e8, #a8e0cc); }
+.pro-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #F5F0E8; margin-bottom: 4px; }
+.pro-spec { font-size: 0.78rem; color: #9A8F7A; margin-bottom: 10px; }
+.pro-rating { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.stars { color: #f4c542; font-size: 0.85rem; }
+.rating-num { font-weight: 600; font-size: 0.85rem; color: #C9A84C; }
+.rating-cnt { font-size: 0.72rem; color: #9A8F7A; }
+.pro-slots { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 16px; }
+.slot { font-size: 0.72rem; background: #1a1208; color: #C9A84C; padding: 5px 12px; border-radius: 50px; border: 1px solid #8B6914; }
+.slot-on { background: #C9A84C; color: #ffffff; border-color: #C9A84C; }
+.btn-ag { width: 100%; background: #C9A84C; color: #ffffff; border: none; border-radius: 50px; padding: 12px; font-size: 0.85rem; font-weight: 500; cursor: pointer; font-family: 'Nunito Sans', sans-serif; }
+
+.inspo-carrusel { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: none; cursor: grab; }
+.inspo-card { border-radius: 16px; overflow: hidden; position: relative; flex: 0 0 70vw; max-width: 280px; scroll-snap-align: start; }
+.inspo-carrusel::-webkit-scrollbar { display: none; }
+.inspo-img { width: 100%; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+
+.ib1 { background: linear-gradient(135deg, #f9c5d1, #e891a8); }
+.ib2 { background: linear-gradient(135deg, #c5d9f9, #91b8e8); }
+.ib3 { background: linear-gradient(135deg, #f9e4c5, #e8c891); }
+.ib4 { background: linear-gradient(135deg, #d1f9c5, #a8e891); }
+.ib5 { background: linear-gradient(135deg, #e4c5f9, #c891e8); }
+.ib6 { background: linear-gradient(135deg, #f9c5e4, #e891c8); }
+.ib7 { background: linear-gradient(135deg, #c5f9e4, #91e8c8); }
+.inspo-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(122,61,53,0.78); color: #ffffff; font-size: 0.78rem; text-align: center; padding: 8px; font-family: 'Cormorant Garamond', Georgia, serif; }
+
+.booking-intro { color: #cccccc; font-size: 0.88rem; line-height: 1.7; margin-bottom: 24px; }
+.book-feat { display: flex; align-items: center; gap: 10px; color: #1a1208; font-size: 0.85rem; margin-bottom: 10px; }
+.book-feat-icon { width: 28px; height: 28px; background: rgba(245,237,230,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+.booking-form { background: #111111; border-radius: 24px; padding: 28px 20px; margin-top: 32px; }
+.form-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; color: #F5F0E8; margin-bottom: 24px; }
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font-size: 0.72rem; color: #9A8F7A; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; margin-bottom: 7px; }
+.form-control { width: 100%; padding: 13px 16px; border: 1.5px solid #8B6914; border-radius: 12px; font-size: 0.9rem; color: #F5F0E8; background: #0A0A0A; font-family: 'Nunito Sans', sans-serif; outline: none; -webkit-appearance: none; appearance: none; }
+.form-control:focus { border-color: #C9A84C; }
+.btn-book { width: 100%; background: #C9A84C; color: #ffffff; border: none; border-radius: 50px; padding: 15px; font-size: 0.92rem; font-weight: 500; cursor: pointer; font-family: 'Nunito Sans', sans-serif; margin-top: 8px; transition: background 0.2s; }
+.btn-book:disabled { background: #aaaaaa; cursor: not-allowed; }
+.wa-note { text-align: center; margin-top: 14px; font-size: 0.78rem; color: #9A8F7A; }
+
+/* TOAST */
+.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: #ffffff; padding: 14px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; z-index: 9999; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
+.toast.show { opacity: 1; }
+.toast.success { background: #1a7a3d; }
+.toast.error { background: #7a1a1a; }
+
+.puntos-card { background: #111111; border-radius: 24px; padding: 28px 20px; border: 1px solid #8B6914; margin-top: 32px; }
+.puntos-hdr { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.puntos-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #8B6914, #C9A84C); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.puntos-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #F5F0E8; }
+.puntos-sub { font-size: 0.78rem; color: #9A8F7A; }
+.puntos-big { text-align: center; margin-bottom: 20px; }
+.puntos-num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; color: #C9A84C; font-weight: 700; line-height: 1; }
+.puntos-desc { font-size: 0.8rem; color: #9A8F7A; margin-top: 4px; }
+.prog-row { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 6px; color: #F5F0E8; }
+.prog-val { color: #C9A84C; font-weight: 600; }
+.prog-bar { height: 6px; background: #1a1208; border-radius: 50px; overflow: hidden; margin-bottom: 8px; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, #8B6914, #C9A84C); border-radius: 50px; }
+.prog-hint { font-size: 0.75rem; color: #9A8F7A; margin-bottom: 20px; }
+.puntos-next { background: #1a1208; border-radius: 12px; padding: 14px; text-align: center; }
+.puntos-next-lbl { font-size: 0.72rem; color: #9A8F7A; margin-bottom: 4px; }
+.puntos-next-val { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.95rem; color: #C9A84C; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.badge { font-size: 0.72rem; padding: 6px 12px; border-radius: 50px; font-weight: 500; }
+.bg-gold { background: #fff3cd; color: #856404; }
+.bg-rose { background: #fce4e4; color: #C9A84C; }
+.bg-green { background: #d4edda; color: #155724; }
+
+footer { background-color: #F5F0E8; padding: 52px 24px 32px; }
+.ft-logo { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; color: #ffffff; margin-bottom: 12px; }
+.ft-logo span { color: #C9A84C; font-style: italic; }
+.ft-desc { font-size: 0.82rem; color: #999999; line-height: 1.7; margin-bottom: 32px; }
+.ft-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
+.ft-col-title { font-size: 0.72rem; color: #777777; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+.ft-link { display: block; color: #cccccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 10px; }
+.ft-bottom { border-top: 1px solid #333333; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.ft-copy { font-size: 0.75rem; color: #666666; }
+.ft-powered { font-size: 0.75rem; color: #666666; }
+.ft-powered strong { color: #aaaaaa; }
+
+.nav-login { background: #fff; color: #C9A84C; border: 1.5px solid #fff; padding: 9px 18px; border-radius: 50px; font-size: 0.82rem; font-weight: 500; cursor: pointer; font-family: 'Nunito Sans', sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; }
+.nav-login:hover { background: #1a1208; color: #C9A84C; }
+.nav-login svg { width: 14px; height: 14px; stroke: #C9A84C; flex-shrink: 0; }
+.nav-user-info { font-size: 0.78rem; color: #C9A84C; font-weight: 500; cursor: pointer; background: #1a1208; border: 1.5px solid #8B6914; padding: 9px 16px; border-radius: 50px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; }
+.nav-user-info:hover { background: #f8d7da; border-color: #f0b8b8; color: #721c24; }
+
+/* BANNER PUNTOS */
+.banner-puntos { background: linear-gradient(135deg, #C9A84C, #C9A84C); border-radius: 20px; padding: 28px 24px; text-align: center; margin-top: 20px; }
+.banner-puntos-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; color: #ffffff; margin-bottom: 8px; }
+.banner-puntos-sub { font-size: 0.85rem; color: rgba(245,237,230,0.8); line-height: 1.6; margin-bottom: 20px; }
+.banner-puntos-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+.banner-puntos-badge { font-size: 0.72rem; padding: 6px 12px; border-radius: 50px; background: rgba(255,255,255,0.15); color: #ffffff; font-weight: 500; }
+.banner-puntos-btn { background: #111111; color: #C9A84C; border: none; border-radius: 50px; padding: 12px 28px; font-size: 0.88rem; font-weight: 600; cursor: pointer; font-family: 'Nunito Sans', sans-serif; }
+.svc-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
+.svc-tab{background:#1a1208;color:#C9A84C;border:none;border-radius:50px;padding:10px 22px;font-size:0.88rem;font-family:'Nunito Sans',sans-serif;cursor:pointer;font-weight:500;transition:all 0.2s;}
+.svc-tab.active{background:#C9A84C;color:#fff;}
+.svc-tab:hover{background:#C9A84C;color:#fff;}
+</style>
+</head>
+<body>
+<div id="page-loader">
+  <img src="terracotta-logo.png" alt="Terracotta" style="height:80px;margin-bottom:20px;">
+  <div class="loader-spinner"></div>
+</div>
+
+<!-- BOTÓN FLOTANTE AGREGAR SERVICIO -->
+<button id="btn-agregar-mas" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:20px;z-index:999;background:#C9A84C;color:#fff;border:none;border-radius:50px;padding:14px 20px;font-size:0.85rem;font-weight:600;font-family:'Nunito Sans',sans-serif;cursor:pointer;box-shadow:0 4px 20px rgba(217,149,149,0.5);align-items:center;gap:8px;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg> Agregar servicio
+</button>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<nav>
+  <div class="nav-logo"><img src="terracotta-logo.png" alt="Terracotta" style="height:100px;"></div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div id="nav-user-wrap">
+      <button class="nav-login" onclick="abrirLogin()">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Iniciar sesion
+      </button>
+    </div>
+    <a href="#servicios" class="nav-cta">Agendar cita</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-overlay" style="background:#0A0A0A;position:absolute;inset:0;"></div>
+  <a href="https://maps.app.goo.gl/Lc4pFZCtQW1D9s2z8?g_st=ic" target="_blank" style="text-decoration:none;">
+    <div class="hero-badge"><span class="hero-dot"></span> Cali · Ciudad Jardín</div>
+  </a>
+  <h1 class="hero-title">Uñas que<br><em>cuentan tu</em><br>historia</h1>
+  <p class="hero-sub">Tu estilo empieza en tus manos. Agenda tu cita con las mejores profesionales de Cali y luce unas uñas perfectas para cada momento.</p>
+  <div class="hero-actions">
+    <a href="#servicios" class="btn-primary">Agendar ahora</a>
+    <a href="#inspiracion" class="btn-ghost">Ver diseños →</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">4.9</div><div class="stat-label">⭐ Calificación</div></div>
+    <div><div class="stat-num">1.2k</div><div class="stat-label">Clientas felices</div></div>
+    <div><div class="stat-num">5+</div><div class="stat-label">Años de exp.</div></div>
+  </div>
+</section>
+
+<div class="banner-wrap">
+  <div class="banner-track">
+    <div class="banner-item"><span class="banner-dot">◆</span> 20% OFF en tu primera visita</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Manicure + Pedicure $75.000</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Acumula puntos y gana beneficios</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Agenda 24/7 desde tu celular</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Confirmación por WhatsApp</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> 20% OFF en tu primera visita</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Manicure + Pedicure $75.000</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Acumula puntos y gana beneficios</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Agenda 24/7 desde tu celular</div>
+    <div class="banner-item"><span class="banner-dot">◆</span> Confirmación por WhatsApp</div>
+  </div>
+</div>
+
+<section class="section" style="background:#0A0A0A;padding:60px 24px;">
+  <div class="sec-label">Nuestra esencia</div>
+  <h2 class="sec-title" style="margin-bottom:24px;">Belleza que define <em>tu estilo</em></h2>
+  <p style="font-size:0.92rem;color:#9A8F7A;line-height:1.8;margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;">En Terracotta, cada servicio es una experiencia de lujo. Desde tu barbería hasta el cuidado de cejas y pestañas, te ofrecemos lo mejor con los más altos estándares de calidad.</p>
+  <div style="border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(235,136,153,0.2);">
+    <video style="width:100%;display:block;max-height:500px;object-fit:cover;" autoplay muted loop playsinline>
+      <source src="https://firebasestorage.googleapis.com/v0/b/mapos-spas.firebasestorage.app/o/spas%2Frose%2Fvideos%2FIMG_0581%202.MP4?alt=media&token=56865277-6f0c-405c-b8e4-25b8a361783d" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="section" id="servicios">
+  <div class="sec-label">Lo que hacemos</div>
+  <h2 class="sec-title">Nuestros <em>servicios</em></h2>
+  <div class="svc-tabs">
+    <button class="svc-tab active" onclick="cambiarTab('manos', this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg> Manos</button>
+    <button class="svc-tab" onclick="cambiarTab('pies', this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 20c0 2 1 3 3 3s4-1 4-3V10c0-5-8-5-8 0v4"/><circle cx="7" cy="8" r="2"/></svg> Pies</button>
+    <button class="svc-tab" onclick="cambiarTab('otros', this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg> Otros</button>
+  </div>
+  <div class="services-grid" id="tab-manos"><div style="text-align:center;padding:40px;color:#9A8F7A;">Cargando...</div></div>
+  <div class="services-grid" id="tab-pies" style="display:none;"><div style="text-align:center;padding:40px;color:#9A8F7A;">Cargando...</div></div>
+  <div class="services-grid" id="tab-otros" style="display:none;"><div style="text-align:center;padding:40px;color:#9A8F7A;">Cargando...</div></div>
+</section>
+
+<section class="section-nude" id="profesionales">
+  <div class="sec-label">Nuestro equipo</div>
+  <h2 class="sec-title">Las <em>profesionales</em></h2>
+  <div class="pros-grid" id="pros-grid">
+    <div style="text-align:center;padding:40px;color:#9A8F7A;">Cargando profesionales...</div>
+  </div>
+</section>
+
+<section class="section" id="inspiracion">
+  <div class="sec-label">¿Sin ideas?</div>
+  <h2 class="sec-title">Inspírate <em>aquí</em></h2>
+  <div class="inspo-carrusel" id="inspo-grid">
+    <div class="inspo-card"><div class="inspo-img ib1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg></div><div class="inspo-label">Francesa clásica</div></div>
+    <div class="inspo-card"><div class="inspo-img ib2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM12 14a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM2 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2zM14 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2z"/></svg></div><div class="inspo-label">Floral primavera</div></div>
+    <div class="inspo-card"><div class="inspo-img ib3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg></div><div class="inspo-label">Glitter sunset</div></div>
+    <div class="inspo-card"><div class="inspo-img ib4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V12M12 12C12 7 17 3 22 4c0 5-4 9-10 8zM12 12C12 7 7 3 2 4c0 5 4 9 10 8z"/></svg></div><div class="inspo-label">Nude natural</div></div>
+    <div class="inspo-card"><div class="inspo-img ib5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="inspo-label">Degradado lila</div></div>
+    <div class="inspo-card"><div class="inspo-img ib6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 12C8 8 2 8 2 4c0 4 4 6 10 8zM12 12c4-4 10-4 10-8 0 4-4 6-10 8zM12 12c-4 4-4 10-8 10 4 0 6-4 8-10zM12 12c4 4 4 10 8 10-4 0-6-4-8-10z"/></svg></div><div class="inspo-label">Mariposas 3D</div></div>
+    <div class="inspo-card"><div class="inspo-img ib7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/></svg></div><div class="inspo-label">Piedras y cristales</div></div>
+  </div>
+</section>
+
+<section class="section-dark" id="agendar">
+  <div class="sec-label" style="color:#8B6914">Reserva tu cita</div>
+  <h2 class="sec-title-w">Agenda en<br><em>segundos</em></h2>
+  <p class="booking-intro">Sin llamadas, sin esperas. Elige tu servicio, profesional y horario. Te confirmamos por WhatsApp al instante.</p>
+  <div class="book-feat"><div class="book-feat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#51BC54" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div> Confirmación inmediata por WhatsApp</div>
+  <div class="book-feat"><div class="book-feat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div> Recordatorio 1 hora antes de tu cita</div>
+  <div class="book-feat"><div class="book-feat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e57373" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div> Cancela fácil hasta 2 horas antes</div>
+  <div class="book-feat"><div class="book-feat-icon">⭐</div> Acumula puntos en cada visita</div>
+  <div class="booking-form">
+    <div class="form-title">Reservar cita</div>
+    <div class="form-group" id="grupo-nombre"><label class="form-label">Tu nombre</label><input class="form-control" id="f-nombre" type="text" placeholder="María Camila Pérez"></div>
+    <div class="form-group" id="grupo-whatsapp"><label class="form-label">WhatsApp</label><input class="form-control" id="f-whatsapp" type="tel" placeholder="300 000 0000"></div>
+    <div class="form-group">
+      <label class="form-label">Sucursal</label>
+      <select class="form-control" id="f-sucursal" onchange="cargarProfesionales()">
+        <option value="">Selecciona una sucursal...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Servicios seleccionados</label>
+      <div id="carrito-servicios" style="background:#1a1208;border-radius:12px;padding:12px;min-height:50px;margin-bottom:8px;">
+        <button onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" style="width:100%;background:none;border:1.5px dashed #8B6914;border-radius:10px;padding:14px;font-size:0.85rem;color:#C9A84C;cursor:pointer;font-family:'Nunito Sans',sans-serif;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg> Toca para seleccionar servicios</button>
+      </div>
+      <div id="carrito-total" style="display:none;background:#fff;border:1.5px solid #8B6914;border-radius:12px;padding:10px 14px;font-size:0.82rem;color:#9A8F7A;justify-content:space-between;">
+        <span id="carrito-total-tiempo">⏱ 0 min</span>
+        <span id="carrito-total-precio" style="font-weight:700;color:#C9A84C;">$0</span>
+      </div>
+      <!-- Dropdown de servicios -->
+      <div id="servicios-dropdown" style="display:none;background:#fff;border:1.5px solid #8B6914;border-radius:12px;margin-top:8px;max-height:280px;overflow-y:auto;"></div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Profesional</label>
+      <select class="form-control" id="f-profesional" onchange="cargarHorarios()">
+        <option value="">Selecciona una sucursal primero...</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Fecha</label><input class="form-control" id="f-fecha" type="date" onchange="cargarHorarios()"></div>
+    <div class="form-group">
+      <label class="form-label">Hora</label>
+      <select class="form-control" id="f-hora">
+        <option>Selecciona fecha primero...</option>
+      </select>
+    </div>
+    <button class="btn-book" id="btn-confirmar" onclick="guardarCita()">Confirmar cita <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg></button>
+    <div class="wa-note">Recibirás confirmación en tu WhatsApp</div>
+  </div>
+</section>
+
+<section class="section-nude" id="seccion-puntos">
+  <div class="sec-label">Programa de fidelidad</div>
+  <h2 class="sec-title">Acumula <em>puntos</em><br>y gana premios</h2>
+  <p style="color:#9A8F7A;font-size:0.9rem;line-height:1.7">Cada visita suma puntos. Canjéalos por servicios gratis y descuentos exclusivos para nuestras clientas más fieles.</p>
+  <div class="badges">
+    <span class="badge bg-gold">⭐ 500 pts = Manicure gratis</span>
+    <span class="badge bg-rose"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 200 pts = 20% OFF</span>
+    <span class="badge bg-green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V7a4 4 0 0 0-8 0v14"/><path d="M2 11h20"/></svg> 100 pts = Nail art gratis</span>
+  </div>
+
+  <!-- SIN SESION: Banner invitacion -->
+  <div class="banner-puntos" id="banner-sin-sesion">
+    <div class="banner-puntos-title">Acumula TerraPoints en cada visita</div>
+    <div class="banner-puntos-sub">Crea tu cuenta gratis y empieza a ganar puntos desde tu primera cita. Canjealos por servicios, descuentos y sorpresas.</div>
+    <div class="banner-puntos-badges">
+      <span class="banner-puntos-badge">⭐ 500 pts = Manicure gratis</span>
+      <span class="banner-puntos-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 200 pts = 20% OFF</span>
+      <span class="banner-puntos-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V7a4 4 0 0 0-8 0v14"/><path d="M2 11h20"/></svg> 100 pts = Nail art gratis</span>
+    </div>
+    <button class="banner-puntos-btn" onclick="abrirLogin()">Crear cuenta gratis</button>
+  </div>
+
+  <!-- CON SESION: Puntos reales -->
+  <div class="puntos-card" id="card-con-sesion" style="display:none;">
+    <div class="puntos-hdr"><div class="puntos-icon">⭐</div><div><div class="puntos-title">Mis TerraPoints</div><div class="puntos-sub">Programa de recompensas</div></div></div>
+    <div class="puntos-big"><div class="puntos-num" id="puntos-num">0</div><div class="puntos-desc">puntos acumulados</div></div>
+    <div class="prog-row"><span>Progreso al nivel Gold</span><span class="prog-val" id="puntos-prog">0 / 500</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="puntos-fill" style="width:0%"></div></div>
+    <div class="prog-hint" id="puntos-hint">Agenda tu primera cita y empieza a acumular</div>
+    <div class="puntos-next" id="puntos-next" style="display:none;">
+      <div class="puntos-next-lbl">Proxima visita</div>
+      <div class="puntos-next-val" id="puntos-next-val"></div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<footer>
+  <div style="text-align:center;margin-bottom:20px;">
+    <img src="terracotta-logo.png" alt="Terracotta" style="height:100px;">
+  </div>
+  <p class="ft-desc" style="text-align:center">Tu estilo empieza en tus manos. Arte, cuidado y estilo en cada visita.</p>
+  <div class="ft-cols">
+    <div><div class="ft-col-title">Servicios</div><a class="ft-link" href="#">Manicure Gel</a><a class="ft-link" href="#">Uñas Acrílicas</a><a class="ft-link" href="#">Pedicure Spa</a><a class="ft-link" href="#">Nail Art</a></div>
+    <div>
+      <div class="ft-col-title">Contacto</div>
+      <a class="ft-link" href="https://maps.app.goo.gl/Lc4pFZCtQW1D9s2z8?g_st=ic" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Cra. 100a #16-30 Cali - Ciudad Jardín</a>
+      <a class="ft-link" href="https://wa.me/573104114945" target="_blank" style="display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        3104114945
+      </a>
+      <a class="ft-link" href="https://instagram.com/terracottasalonspa" target="_blank" style="display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        terracottasalonspa
+      </a>
+      <a class="ft-link" href="https://www.facebook.com/share/1HZcgQBbXh/?mibextid=wwXIfr" target="_blank" style="display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        Terracotta Spa
+      </a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 Terracotta. Todos los derechos reservados.</div>
+    <div class="ft-powered">
+      <a href="https://maposapp.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+        <span style="font-size:0.72rem;color:#666666">Powered by</span>
+        <img src="mapos.png" style="height:60px;vertical-align:middle;" alt="MApos">
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- FIREBASE -->
+<!-- MODAL POLÍTICA DE DATOS -->
+<div id="modal-politica" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:20px;padding:28px 24px;width:100%;max-width:400px;max-height:80vh;overflow-y:auto;">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#F5F0E8;margin-bottom:16px;">Política de datos personales</div>
+    <div style="font-size:0.82rem;color:#5a5a5a;line-height:1.7;">
+      <p><strong>Responsable:</strong> Terracotta Spa — Llano Grande, Rionegro, Colombia.</p>
+      <p><strong>Datos recopilados:</strong> Nombre y número de WhatsApp.</p>
+      <p><strong>Finalidad:</strong> Gestionar tu cita, enviarte confirmaciones y recordatorios por WhatsApp, y acumular tus TerraPoints.</p>
+      <p><strong>Derechos:</strong> Puedes solicitar la eliminación de tus datos escribiéndonos al WhatsApp <a href="https://wa.me/573104114945" style="color:#C9A84C;">310 411 4945</a>.</p>
+      <p><strong>Confidencialidad:</strong> Tus datos no serán compartidos con terceros.</p>
+      <p style="color:#9A8F7A;font-size:0.75rem;">De conformidad con la Ley 1581 de 2012 y el Decreto 1377 de 2013 de Colombia.</p>
+    </div>
+    <button onclick="document.getElementById('modal-politica').style.display='none'" style="width:100%;margin-top:16px;background:#C9A84C;color:#fff;border:none;border-radius:50px;padding:12px;font-size:0.88rem;cursor:pointer;font-family:'Nunito Sans',sans-serif;">Entendido</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyBBZInWQZVJyBTP5TG8MrTBOfe7UQFR5uU",
+  authDomain: "mapos-spas.firebaseapp.com",
+  projectId: "mapos-spas",
+  storageBucket: "mapos-spas.firebasestorage.app",
+  messagingSenderId: "704720438670",
+  appId: "1:704720438670:web:fd94574e51e97964cd10df"
+});
+
+var db = firebase.firestore();
+var usuarioActual = null;
+var telefonoActual = null;
+var profesionalSeleccionado = null;
+
+var ENVIAR_URL = "https://us-central1-mapos-spas.cloudfunctions.net/enviarCodigo";
+var VERIFICAR_URL = "https://us-central1-mapos-spas.cloudfunctions.net/verificarCodigo";
+
+function showToast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (type ? ' ' + type : '');
+  setTimeout(function() { t.className = 'toast'; }, 3500);
+}
+
+// Cargar sesion guardada
+document.addEventListener('DOMContentLoaded', function() {
+  window.scrollTo(0, 0);
+  history.scrollRestoration = 'manual';
+  var pendientes = 3;
+  var loaderOculto = false;
+
+  function ocultarLoader() {
+    if (loaderOculto) return;
+    loaderOculto = true;
+    var loader = document.getElementById('page-loader');
+    if (loader) { loader.classList.add('oculto'); setTimeout(function(){ loader.style.display='none'; }, 500); }
+  }
+
+  function checkListo() {
+    pendientes--;
+    if (pendientes <= 0) {
+      setTimeout(ocultarLoader, 300);
+    }
+  }
+
+  // Timeout máximo de 6 segundos
+  setTimeout(ocultarLoader, 6000);
+  cargarSucursales(checkListo);
+  cargarProfesionalesPublico(checkListo);
+  cargarServicios(checkListo);
+  cargarInspiracion();
+  // Forzar reproducción del video hero
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    heroVideo.play().catch(function() {
+      heroVideo.muted = true;
+      heroVideo.play();
+    });
+  }
+  db.collection('spas').doc('terracotta').collection('config').doc('hero').get().then(function(doc) {
+    if (doc.exists && doc.data().videoUrl) {
+      var video = document.getElementById('hero-video');
+      if (video) {
+        video.querySelector('source').src = doc.data().videoUrl;
+        video.load();
+      }
+    }
+  });
+  // Poner fecha de hoy y bloquear fechas pasadas
+  var ahora = new Date();
+  var hoy = ahora.getFullYear() + '-' + String(ahora.getMonth()+1).padStart(2,'0') + '-' + String(ahora.getDate()).padStart(2,'0');
+  var inputFecha = document.getElementById('f-fecha');
+  inputFecha.value = hoy;
+  inputFecha.min = hoy;
+  var sesionGuardada = localStorage.getItem('terracotta_session');
+  if (sesionGuardada) {
+    try {
+      usuarioActual = JSON.parse(sesionGuardada);
+      telefonoActual = usuarioActual.tel;
+      cargarPerfilUsuario(usuarioActual.tel);
+      actualizarNavUsuario(usuarioActual.tel);
+      mostrarFormularioLogueado();
+    } catch(e) { localStorage.removeItem('terracotta_session'); }
+  }
+});
+
+function cargarPerfilUsuario(tel) {
+  db.collection('spas').doc('terracotta').collection('clientes').doc(tel).get().then(function(doc) {
+    if (doc.exists) {
+      var data = doc.data();
+      if (data.nombre) {
+        var fn = document.getElementById('f-nombre'); if(fn) fn.value = data.nombre;
+        // Actualizar nombre en nav
+        var wrap = document.getElementById('nav-user-wrap');
+        if (wrap && wrap.querySelector('.nav-user-info')) {
+          var display = data.nombre.split(' ')[0];
+          wrap.innerHTML = '<span class="nav-user-info" onclick="cerrarSesion()" title="Toca para cerrar sesion"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;stroke:#C9A84C"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' + display + ' · Salir</span>';
+        }
+      }
+      if (data.whatsapp) { var fw = document.getElementById('f-whatsapp'); if(fw) fw.value = data.whatsapp; }
+      var puntos = data.puntos || 0;
+      var pct = Math.min(Math.round((puntos/500)*100), 100);
+      var el = document.getElementById('puntos-num'); if(el) el.textContent = puntos;
+      var ep = document.getElementById('puntos-prog'); if(ep) ep.textContent = puntos + ' / 500';
+      var ef = document.getElementById('puntos-fill'); if(ef) ef.style.width = pct + '%';
+      var eh = document.getElementById('puntos-hint');
+      if(eh) eh.textContent = puntos >= 500 ? 'Tienes una manicure gratis disponible!' : 'Te faltan ' + (500-puntos) + ' puntos para una manicure gratis';
+    }
+  });
+  // Cargar próxima cita
+  var hoy = new Date().toISOString().split('T')[0];
+  db.collection('spas').doc('terracotta').collection('citas')
+    .where('uid', '==', tel)
+    .where('estado', 'in', ['pendiente', 'confirmada'])
+    .get().then(function(snap) {
+      var futuras = snap.docs.map(function(d){return d.data();}).filter(function(c){ return c.fecha >= hoy; });
+      futuras.sort(function(a,b){ return (a.fecha+a.hora).localeCompare(b.fecha+b.hora); });
+      var elNext = document.getElementById('puntos-next');
+      var elVal = document.getElementById('puntos-next-val');
+      if (futuras.length > 0 && elNext && elVal) {
+        var c = futuras[0];
+        var fecha = new Date(c.fecha + 'T12:00:00');
+        var opcFecha = { weekday: 'long', day: 'numeric', month: 'short' };
+        var fechaStr = fecha.toLocaleDateString('es-CO', opcFecha);
+        elVal.textContent = fechaStr + ' · ' + c.hora + (c.profesional ? ' con ' + c.profesional.split(' ')[0] : '');
+        elNext.style.display = 'block';
+      } else if (elNext) {
+        elNext.style.display = 'none';
+      }
+    });
+}
+
+function mostrarFormularioLogueado() {
+  var gNombre = document.getElementById('grupo-nombre');
+  var gWa = document.getElementById('grupo-whatsapp');
+  if(gNombre) gNombre.style.display = 'none';
+  if(gWa) gWa.style.display = 'none';
+}
+
+function mostrarFormularioDeslogueado() {
+  var gNombre = document.getElementById('grupo-nombre');
+  var gWa = document.getElementById('grupo-whatsapp');
+  if(gNombre) gNombre.style.display = 'block';
+  if(gWa) gWa.style.display = 'block';
+}
+
+function formatearTelefono(input) {
+  var val = input.value.replace(/\D/g, '').substring(0, 10);
+  var formato = '';
+  if (val.length > 0) formato = val.substring(0, 3);
+  if (val.length > 3) formato += ' ' + val.substring(3, 6);
+  if (val.length > 6) formato += ' ' + val.substring(6, 10);
+  input.value = formato;
+}
+
+function abrirPolitica() {
+  document.getElementById('modal-politica').style.display = 'flex';
+}
+
+function abrirLogin() {
+  document.getElementById('login-overlay').style.display = 'flex';
+  document.getElementById('paso-telefono').style.display = 'block';
+  document.getElementById('paso-codigo').style.display = 'none';
+  var btn = document.getElementById('btn-enviar-codigo');
+  if (btn) { btn.disabled = false; btn.textContent = 'Enviar codigo por WhatsApp'; }
+  var btnVer = document.getElementById('btn-verificar');
+  if (btnVer) { btnVer.disabled = false; btnVer.textContent = 'Verificar codigo'; }
+  var tel = document.getElementById('login-telefono');
+  if (tel) tel.value = '';
+}
+
+function actualizarNavUsuario(tel, nombre) {
+  document.getElementById('login-overlay').style.display = 'none';
+  var wrap = document.getElementById('nav-user-wrap');
+  var display = nombre ? nombre.split(' ')[0] : tel.replace('+57','');
+  if (wrap) wrap.innerHTML = '<span class="nav-user-info" onclick="cerrarSesion()" title="Toca para cerrar sesion"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;stroke:#C9A84C"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' + display + ' · Salir</span>';
+  document.getElementById('banner-sin-sesion').style.display = 'none';
+  document.getElementById('card-con-sesion').style.display = 'block';
+}
+
+function enviarCodigo() {
+  var tel = document.getElementById('login-telefono').value.trim();
+  var pais = document.getElementById('login-pais').value;
+  if (!tel || tel.length < 7) { showToast('Ingresa tu número de celular', 'error'); return; }
+  var número = tel.replace(/\s/g, '');
+  if (número.startsWith('0')) número = número.substring(1);
+  telefonoActual = pais + número;
+  console.log('Enviando a:', telefonoActual);
+
+  var btn = document.getElementById('btn-enviar-codigo');
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando código...';
+
+  fetch(ENVIAR_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ numero: telefonoActual })
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.ok) {
+      document.getElementById('paso-telefono').style.display = 'none';
+      document.getElementById('paso-codigo').style.display = 'block';
+      showToast('Codigo enviado por WhatsApp', 'success');
+    } else {
+      showToast('Error al enviar el codigo', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Enviar codigo por WhatsApp';
+    }
+  }).catch(function() {
+    showToast('Error de conexion', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Enviar codigo por WhatsApp';
+  });
+}
+
+function verificarCodigo() {
+  var codigo = document.getElementById('login-codigo').value.trim();
+  if (!codigo || codigo.length < 6) { showToast('Ingresa el codigo de 6 digitos', 'error'); return; }
+
+  var btn = document.getElementById('btn-verificar');
+  btn.disabled = true;
+  btn.textContent = '⏳ Verificando...';
+
+  fetch(VERIFICAR_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ numero: telefonoActual, codigo: codigo })
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.ok) {
+      usuarioActual = { tel: data.tel };
+      localStorage.setItem('terracotta_session', JSON.stringify(usuarioActual));
+      btn.textContent = '✓ Ingresando...';
+
+      // Verificar si es primera vez
+      db.collection('spas').doc('terracotta').collection('clientes').doc(data.tel).get().then(function(doc) {
+        if (!doc.exists || !doc.data().nombre) {
+          // Primera vez — mostrar paso 3
+          document.getElementById('paso-codigo').style.display = 'none';
+          document.getElementById('paso-datos').style.display = 'block';
+        } else {
+          // Ya tiene datos — entrar directo
+          actualizarNavUsuario(data.tel);
+          cargarPerfilUsuario(data.tel);
+          mostrarFormularioLogueado();
+          showToast('Bienvenida de nuevo!', 'success');
+        }
+      });
+    } else {
+      showToast(data.error || 'Codigo incorrecto', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Verificar codigo';
+    }
+  }).catch(function() {
+    showToast('Error de conexion', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Verificar codigo';
+  });
+}
+
+function guardarDatosRegistro() {
+  var nombre = document.getElementById('reg-nombre').value.trim();
+  if (!nombre) { showToast('Ingresa tu nombre', 'error'); return; }
+  var cumple = document.getElementById('reg-cumple').value;
+
+  var btn = document.getElementById('btn-guardar-datos');
+  btn.disabled = true;
+  btn.textContent = 'Guardando...';
+
+  var datos = {
+    nombre: nombre,
+    whatsapp: usuarioActual.tel,
+    puntos: 0,
+    visitas: 0,
+    creadoEn: firebase.firestore.FieldValue.serverTimestamp()
+  };
+  if (cumple) datos.cumpleanos = cumple;
+
+  db.collection('spas').doc('terracotta').collection('clientes').doc(usuarioActual.tel).set(datos, { merge: true }).then(function() {
+    // Prellenar formulario
+    var fn = document.getElementById('f-nombre'); if(fn) fn.value = nombre;
+    var fw = document.getElementById('f-whatsapp'); if(fw) fw.value = usuarioActual.tel;
+    actualizarNavUsuario(usuarioActual.tel, nombre);
+    mostrarFormularioLogueado();
+    showToast('Bienvenida ' + nombre + '! Ya podes agendar', 'success');
+  }).catch(function() {
+    showToast('Error guardando datos', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Guardar y entrar';
+  });
+}
+
+// Cargar sucursales desde Firestore
+function cargarSucursales(callback) {
+  db.collection('spas').doc('terracotta').collection('sucursales').get().then(function(snapshot) {
+    var select = document.getElementById('f-sucursal');
+    select.innerHTML = '<option value="">Selecciona una sucursal...</option>';
+    snapshot.forEach(function(doc) {
+      var data = doc.data();
+      var option = document.createElement('option');
+      option.value = doc.id;
+      option.textContent = data.nombre || doc.id;
+      select.appendChild(option);
+    });
+    // Si solo hay una sucursal, seleccionarla automáticamente
+    if (snapshot.size === 1) {
+      select.selectedIndex = 1;
+      cargarProfesionales();
+    }
+    if(callback) callback();
+  }).catch(function(){if(callback)callback();});
+}
+
+// Cargar profesionales según sucursal
+function cargarProfesionales() {
+  var sucursalId = document.getElementById('f-sucursal').value;
+  var select = document.getElementById('f-profesional');
+  if (!sucursalId) {
+    select.innerHTML = '<option value="">Selecciona una sucursal primero...</option>';
+    return;
+  }
+  db.collection('spas').doc('terracotta').collection('sucursales').doc(sucursalId).collection('profesionales').get().then(function(snapshot) {
+    select.innerHTML = '<option value="Cualquiera disponible">Cualquiera disponible</option>';
+    snapshot.forEach(function(doc) {
+      var data = doc.data();
+      var option = document.createElement('option');
+      option.value = data.nombre || doc.id;
+      option.textContent = data.nombre || doc.id;
+      select.appendChild(option);
+    });
+    // Aplicar profesional seleccionado si hay uno guardado
+    if (profesionalSeleccionado) {
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].text === profesionalSeleccionado) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  });
+  cargarHorarios();
+}
+
+// Cargar horarios según sucursal y fecha
+var DURACIONES = {
+  'Manicure Gel': 45,
+  'Uñas Acrílicas': 90,
+  'Pedicure Spa': 60,
+  'Nail Art': 30,
+  'Semipermanente': 50,
+  'Manicure + Pedicure': 100
+};
+
+function getDuracion() {
+  if (carritoServicios && carritoServicios.length > 0) {
+    return carritoServicios.reduce(function(total, s){ return total + (s.duracion || 60); }, 0);
+  }
+  return 60;
+}
+
+function cargarHorarios() {
+  var sucursalId = document.getElementById('f-sucursal').value;
+  var fecha = document.getElementById('f-fecha').value;
+  var profesionalId = document.getElementById('f-profesional').value;
+  var select = document.getElementById('f-hora');
+  if (!sucursalId || !fecha) {
+    select.innerHTML = '<option>Selecciona fecha primero...</option>';
+    return;
+  }
+  select.innerHTML = '<option>Cargando...</option>';
+  var dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
+  var diaSemana = dias[new Date(fecha + 'T12:00:00').getDay()];
+
+  db.collection('spas').doc('terracotta').collection('sucursales').doc(sucursalId).collection('horarios').doc(diaSemana).get().then(function(doc) {
+    if (!doc.exists || !doc.data().activo) {
+      select.innerHTML = '<option>No hay servicio este día</option>';
+      return;
+    }
+    var data = doc.data();
+    var abre = parseInt(data.abre.split(':')[0]);
+    var cierra = parseInt(data.cierra.split(':')[0]);
+    var duracion = getDuracion();
+
+    // Consultar citas existentes ese día
+    var query = db.collection('spas').doc('terracotta').collection('citas')
+      .where('fecha', '==', fecha)
+      .where('sucursal', '==', sucursalId)
+      .where('estado', 'in', ['pendiente', 'confirmada']);
+
+    if (profesionalId && profesionalId !== 'cualquiera') {
+      query = query.where('profesional', '==', profesionalId);
+    }
+
+    query.get().then(function(citasSnap) {
+      // Construir mapa de slots ocupados
+      var ocupados = {};
+      citasSnap.forEach(function(citaDoc) {
+        var cita = citaDoc.data();
+        var horaStr = cita.hora;
+        // Parsear hora tipo "9:00 AM" o "10:00 AM"
+        var match = horaStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+        if (!match) return;
+        var h = parseInt(match[1]);
+        var ampm = match[3].toUpperCase();
+        if (ampm === 'PM' && h !== 12) h += 12;
+        if (ampm === 'AM' && h === 12) h = 0;
+        var durCita = DURACIONES[cita.servicio ? cita.servicio.split('—')[0].trim() : ''] || 60;
+        var slots = Math.ceil(durCita / 60);
+        for (var i = 0; i < slots; i++) {
+          ocupados[h + i] = true;
+        }
+      });
+
+      // Generar slots disponibles
+      select.innerHTML = '';
+      var slotsNecesarios = Math.ceil(duracion / 60);
+      var hayDisponibles = false;
+
+      var ahora = new Date();
+      var hoyStr = ahora.toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+      var horaActual = fecha === hoyStr ? parseInt(ahora.toLocaleTimeString('en-US', { timeZone: 'America/Bogota', hour: 'numeric', hour12: false })) + 1 : 0;
+
+      for (var h = abre; h <= cierra - slotsNecesarios; h++) {
+        // Bloquear horas pasadas si es hoy
+        if (h <= horaActual) continue;
+        var disponible = true;
+        for (var s = 0; s < slotsNecesarios; s++) {
+          if (ocupados[h + s]) { disponible = false; break; }
+        }
+        var ampm = h < 12 ? 'AM' : 'PM';
+        var h12 = h === 0 ? 12 : (h <= 12 ? h : h - 12);
+        var option = document.createElement('option');
+        option.value = h12 + ':00 ' + ampm;
+        option.textContent = h12 + ':00 ' + ampm;
+        if (!disponible) {
+          option.disabled = true;
+          option.textContent += ' (ocupado)';
+        } else {
+          hayDisponibles = true;
+        }
+        select.appendChild(option);
+      }
+
+      if (!hayDisponibles) {
+        select.innerHTML = '<option>No hay horarios disponibles este día</option>';
+      }
+    });
+  });
+}
+
+// Cargar sucursales al iniciar
+function cargarProfesionalesPublico(callback) {
+  var avatares = ['<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>','<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>','<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>','<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>','<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>','<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>'];
+  var clases = ['pa1','pa2','pa3','pa4','pa1','pa2'];
+  db.collection('spas').doc('terracotta').collection('sucursales').get().then(function(sucSnap) {
+    if (sucSnap.empty) return;
+    var sucursalId = sucSnap.docs[0].id;
+    db.collection('spas').doc('terracotta').collection('sucursales').doc(sucursalId).collection('profesionales').get().then(function(snapshot) {
+      var grid = document.getElementById('pros-grid');
+      if (snapshot.empty) { grid.innerHTML = '<div style="text-align:center;padding:40px;color:#9A8F7A;">Próximamente...</div>'; if(callback)callback(); return; }
+      grid.innerHTML = '';
+      var i = 0;
+      snapshot.forEach(function(doc) {
+        var data = doc.data();
+        var nombre = data.nombre || doc.id;
+        var especialidad = data.especialidad || '';
+        var calificacion = data.calificacion || 5.0;
+        var totalCal = data.totalCalificaciones || 0;
+        var estrellas = '';
+        for (var s = 1; s <= 5; s++) { estrellas += s <= Math.round(calificacion) ? '★' : '☆'; }
+        var avatarHtml = '';
+        if (data.foto) {
+          avatarHtml = '<div class="pro-avatar ' + clases[i % clases.length] + '" style="overflow:hidden;padding:0;"><img src="' + data.foto + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>';
+        } else {
+          avatarHtml = '<div class="pro-avatar ' + clases[i % clases.length] + '">' + avatares[i % avatares.length] + '</div>';
+        }
+        grid.innerHTML += '<div class="pro-card">' + avatarHtml + '<div class="pro-name">' + nombre + '</div><div class="pro-spec">' + especialidad + '</div><div class="pro-rating"><span class="stars">' + estrellas + '</span><span class="rating-num">' + calificacion + '</span><span class="rating-cnt">(' + totalCal + ')</span></div><button class="btn-ag" onclick="agendarCon(\'' + nombre + '\')">Agendar con ella</button></div>';
+        i++;
+      });
+      if(callback) callback();
+    });
+  });
+}
+
+// ===== CARRUSEL AUTOPLAY =====
+(function() {
+  var el, isDragging = false, startX, scrollLeft, autoplayInterval;
+
+  function initCarrusel() {
+    el = document.getElementById('inspo-grid');
+    if (!el) return;
+
+    // Drag con mouse
+    el.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      el.style.cursor = 'grabbing';
+      clearInterval(autoplayInterval);
+    });
+    el.addEventListener('mouseleave', function() { isDragging = false; el.style.cursor = 'grab'; startAutoplay(); });
+    el.addEventListener('mouseup', function() { isDragging = false; el.style.cursor = 'grab'; startAutoplay(); });
+    el.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      var x = e.pageX - el.offsetLeft;
+      el.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+
+    // Touch
+    el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = el.scrollLeft; clearInterval(autoplayInterval); }, { passive: true });
+    el.addEventListener('touchend', function() { startAutoplay(); }, { passive: true });
+    el.addEventListener('touchmove', function(e) {
+      var x = e.touches[0].pageX;
+      el.scrollLeft = scrollLeft - (x - startX);
+    }, { passive: true });
+
+    startAutoplay();
+  }
+
+  function startAutoplay() {
+    clearInterval(autoplayInterval);
+    autoplayInterval = setInterval(function() {
+      if (!el) return;
+      var maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll) {
+        el.scrollLeft = 0;
+      } else {
+        el.scrollLeft += 1;
+      }
+    }, 20);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initCarrusel, 1500); // Iniciar después del loader
+  });
+})();
+
+function cargarInspiracion() {
+  db.collection('spas').doc('terracotta').collection('inspiracion').orderBy('orden').get().then(function(snap) {
+    if (snap.empty) return; // Deja las hardcodeadas si no hay en Firestore
+    var grid = document.getElementById('inspo-grid');
+    grid.innerHTML = '';
+    snap.forEach(function(doc) {
+      var d = doc.data();
+      var card = '<div class="inspo-card">';
+      if (d.foto) {
+        card += '<div class="inspo-img" style="background-image:url(' + d.foto + ');background-size:cover;background-position:center;"></div>';
+      } else {
+        card += '<div class="inspo-img"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg></div>';
+      }
+      card += '<div class="inspo-label">' + (d.nombre || '') + '</div></div>';
+      grid.innerHTML += card;
+    });
+  });
+}
+
+function cerrarSesion() {
+  localStorage.removeItem('terracotta_session');
+  usuarioActual = null;
+  telefonoActual = null;
+  // Restaurar botón de login sin refrescar
+  var wrap = document.getElementById('nav-user-wrap');
+  if (wrap) wrap.innerHTML = '<button class="nav-login" onclick="abrirLogin()">Iniciar sesion</button>';
+  // Ocultar puntos reales y mostrar banner
+  document.getElementById('banner-sin-sesion').style.display = 'block';
+  document.getElementById('card-con-sesion').style.display = 'none';
+  // Limpiar formulario
+  var fn = document.getElementById('f-nombre'); if(fn) fn.value = '';
+  var fw = document.getElementById('f-whatsapp'); if(fw) fw.value = '';
+  mostrarFormularioDeslogueado();
+  showToast('Sesion cerrada');
+}
+
+function cargarServicios(callback) {
+  var emojis = { manos: ['<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V12M12 12C12 7 17 3 22 4c0 5-4 9-10 8zM12 12C12 7 7 3 2 4c0 5 4 9 10 8z"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>','<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10c0 2-2 3-4 2l-2-1c-2-1-4 0-4 2v1c0 2-1 3-3 3a10 10 0 0 1 3-17z"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM12 14a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM2 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2zM14 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2z"/></svg>'], pies: ['<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 20c0 2 1 3 3 3s4-1 4-3V10c0-5-8-5-8 0v4"/><circle cx="7" cy="8" r="2"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V12M12 12C12 7 17 3 22 4c0 5-4 9-10 8zM12 12C12 7 7 3 2 4c0 5 4 9 10 8z"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>'], otros: ['<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM12 14a2 2 0 0 1 2 4 2 2 0 0 1-2 4 2 2 0 0 1-2-4 2 2 0 0 1 2-4zM2 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2zM14 12a2 2 0 0 1 4-2 2 2 0 0 1 4 2 2 2 0 0 1-4 2 2 2 0 0 1-4-2z"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 20c0 2 1 3 3 3s4-1 4-3V10c0-5-8-5-8 0v4"/><circle cx="7" cy="8" r="2"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/></svg>','<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10c0 2-2 3-4 2l-2-1c-2-1-4 0-4 2v1c0 2-1 3-3 3a10 10 0 0 1 3-17z"/></svg>'] };
+  var categorias = ['manos', 'pies', 'otros'];
+  var nombresCat = { manos: 'Manos', pies: 'Pies', otros: 'Otros' };
+  db.collection('spas').doc('terracotta').collection('servicios').where('activo', '==', true).get().then(function(snapshot) {
+    var porCategoria = { manos: [], pies: [], otros: [] };
+    snapshot.forEach(function(doc) {
+      var d = doc.data();
+      if (porCategoria[d.categoria]) porCategoria[d.categoria].push(d);
+    });
+
+    // Actualizar grids de servicios
+    categorias.forEach(function(cat) {
+      var grid = document.getElementById('tab-' + cat);
+      var lista = porCategoria[cat];
+      if (!lista || lista.length === 0) { grid.innerHTML = '<div style="text-align:center;padding:40px;color:#9A8F7A;">Sin servicios disponibles</div>'; return; }
+      grid.innerHTML = '';
+      lista.forEach(function(s, i) {
+        var emoji = emojis[cat][i % emojis[cat].length];
+        var precio = s.precio ? '$' + s.precio.toLocaleString('es-CO') : 'Consultar';
+        var duracion = s.duracion ? '⏱ ' + s.duracion + ' min' : '';
+        var imgHtml = s.foto ? '<div class="svc-img" style="background-image:url(' + s.foto + ');background-size:cover;background-position:center;"></div>' : '<div class="svc-img si' + ((i%6)+1) + '">' + emoji + '</div>';
+        var nombreFormato = s.nombre;
+        grid.innerHTML += '<div class="service-card">' + imgHtml + '<div class="svc-body"><div class="svc-name">' + s.nombre + '</div><div class="svc-desc">' + (s.descripcion || '') + '</div><div class="svc-foot"><div class="svc-price">' + precio + '</div><div class="svc-dur">' + duracion + '</div></div><button class="btn-ag" style="margin-top:12px;" onclick="seleccionarServicio(\'' + nombreFormato.replace(/'/g, "\\'") + '\',' + (s.precio||0) + ',' + (s.duracion||60) + ')">Agendar</button></div></div>';
+      });
+    });
+    if(callback) callback();
+  }).catch(function(){ if(callback) callback(); });
+}
+
+function cambiarTab(tab, btn) {
+  document.querySelectorAll('.svc-tab').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('tab-manos').style.display = 'none';
+  document.getElementById('tab-pies').style.display = 'none';
+  document.getElementById('tab-otros').style.display = 'none';
+  document.getElementById('tab-' + tab).style.display = 'grid';
+}
+
+var todosServiciosCache = [];
+
+function toggleDropdownServicios() {
+  var dropdown = document.getElementById('servicios-dropdown');
+  if (dropdown.style.display === 'none') {
+    // Llenar con servicios
+    if (todosServiciosCache.length === 0) {
+      dropdown.innerHTML = '<div style="padding:12px;color:#9A8F7A;font-size:0.85rem;">Cargando...</div>';
+      dropdown.style.display = 'block';
+      db.collection('spas').doc('terracotta').collection('servicios').where('activo','==',true).get().then(function(snap) {
+        todosServiciosCache = [];
+        snap.forEach(function(doc) { todosServiciosCache.push(doc.data()); });
+        renderDropdown();
+      });
+    } else {
+      renderDropdown();
+      dropdown.style.display = 'block';
+    }
+  } else {
+    dropdown.style.display = 'none';
+  }
+}
+
+function renderDropdown() {
+  var dropdown = document.getElementById('servicios-dropdown');
+  var cats = { manos: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg> Manos', pies: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 20c0 2 1 3 3 3s4-1 4-3V10c0-5-8-5-8 0v4"/><circle cx="7" cy="8" r="2"/></svg> Pies', otros: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg> Otros' };
+  var porCat = { manos: [], pies: [], otros: [] };
+  todosServiciosCache.forEach(function(s) { if(porCat[s.categoria]) porCat[s.categoria].push(s); });
+  var html = '';
+  Object.keys(cats).forEach(function(cat) {
+    if (!porCat[cat] || porCat[cat].length === 0) return;
+    html += '<div style="padding:8px 14px;font-size:0.72rem;font-weight:700;color:#9A8F7A;background:#fafafa;text-transform:uppercase;letter-spacing:0.5px;">' + cats[cat] + '</div>';
+    porCat[cat].forEach(function(s) {
+      var yaEsta = carritoServicios.find(function(c){ return c.nombre === s.nombre; });
+      html += '<div onclick="' + (yaEsta ? '' : 'seleccionarServicio(\'' + s.nombre.replace(/'/g,"\\'") + '\',' + s.precio + ',' + s.duracion + ');renderDropdown()') + '" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #fff5f5;cursor:' + (yaEsta ? 'default' : 'pointer') + ';opacity:' + (yaEsta ? '0.4' : '1') + ';">';
+      html += '<div><div style="font-size:0.85rem;color:#F5F0E8;">' + s.nombre + '</div><div style="font-size:0.75rem;color:#9A8F7A;">⏱ ' + s.duracion + ' min</div></div>';
+      html += '<div style="font-weight:600;color:#C9A84C;font-size:0.85rem;">$' + (s.precio||0).toLocaleString('es-CO') + '</div>';
+      html += '</div>';
+    });
+  });
+  dropdown.innerHTML = html;
+  dropdown.style.display = 'block';
+}
+
+var carritoServicios = [];
+
+function seleccionarServicio(nombre, precio, duracion) {
+  // Si ya está en el carrito, no agregar
+  var yaEsta = carritoServicios.find(function(s){ return s.nombre === nombre; });
+  if (yaEsta) {
+    showToast('Ya agregaste este servicio', 'error');
+    return;
+  }
+  carritoServicios.push({ nombre: nombre, precio: precio || 0, duracion: duracion || 60 });
+  renderCarrito();
+  cargarHorarios();
+  var profSelect = document.getElementById('f-profesional');
+  var profSeleccionada = profSelect && profSelect.value && profSelect.value !== 'Cualquiera disponible';
+  if (profSeleccionada) {
+    document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    document.getElementById('profesionales').scrollIntoView({ behavior: 'smooth' });
+  }
+  showToast('✓ ' + nombre + ' agregado');
+}
+
+function quitarServicio(nombre) {
+  carritoServicios = carritoServicios.filter(function(s){ return s.nombre !== nombre; });
+  renderCarrito();
+  cargarHorarios();
+}
+
+function renderCarrito() {
+  var contenedor = document.getElementById('carrito-servicios');
+  var vacio = document.getElementById('carrito-vacio');
+  var totalDiv = document.getElementById('carrito-total');
+  
+  if (carritoServicios.length === 0) {
+    contenedor.innerHTML = '<button onclick="toggleDropdownServicios()" style="width:100%;background:none;border:1.5px dashed #8B6914;border-radius:10px;padding:14px;font-size:0.85rem;color:#C9A84C;cursor:pointer;font-family:\'DM Sans\',sans-serif;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg> Toca para seleccionar servicios</button>';
+    totalDiv.style.display = 'none';
+    var btnFlotante = document.getElementById('btn-agregar-mas');
+    if (btnFlotante) btnFlotante.style.display = 'none';
+    return;
+  }
+
+  var html = '';
+  var totalTiempo = 0;
+  var totalPrecio = 0;
+  carritoServicios.forEach(function(s) {
+    totalTiempo += s.duracion;
+    totalPrecio += s.precio;
+    html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #8B6914;">';
+    html += '<div><div style="font-size:0.85rem;font-weight:500;color:#F5F0E8;">' + s.nombre + '</div>';
+    html += '<div style="font-size:0.75rem;color:#9A8F7A;">$' + s.precio.toLocaleString('es-CO') + ' · ⏱ ' + s.duracion + ' min</div></div>';
+    html += '<button onclick="quitarServicio(\'' + s.nombre.replace(/'/g,"\\'") + '\')" style="background:none;border:none;color:#e57373;font-size:1.1rem;cursor:pointer;">✕</button>';
+    html += '</div>';
+  });
+  contenedor.innerHTML = html;
+  // Mostrar botón flotante
+  var btnFlotante = document.getElementById('btn-agregar-mas');
+  if (btnFlotante) { btnFlotante.style.display = 'flex'; }
+  totalDiv.style.display = 'flex';
+  document.getElementById('carrito-total-tiempo').textContent = '⏱ ' + totalTiempo + ' min';
+  document.getElementById('carrito-total-precio').textContent = '$' + totalPrecio.toLocaleString('es-CO');
+}
+
+function agendarCon(nombre) {
+  profesionalSeleccionado = nombre;
+  var select = document.getElementById('f-profesional');
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].text === nombre) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+  cargarHorarios();
+  document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+  showToast('Seleccionaste a ' + nombre);
+}
+
+function guardarCita() {
+  if (!usuarioActual) {
+    document.getElementById('login-overlay').style.display = 'flex';
+    document.getElementById('paso-telefono').style.display = 'block';
+    document.getElementById('paso-codigo').style.display = 'none';
+    showToast('Primero ingresa con tu número', 'error');
+    return;
+  }
+
+  var nombre = document.getElementById('f-nombre').value.trim();
+  var whatsapp = document.getElementById('f-whatsapp').value.trim();
+  var profesional = document.getElementById('f-profesional').value;
+  var sucursal = document.getElementById('f-sucursal').value;
+  var fecha = document.getElementById('f-fecha').value;
+  var hora = document.getElementById('f-hora').value;
+
+  if (!nombre) { showToast('Ingresa tu nombre', 'error'); return; }
+  if (!whatsapp) { showToast('Ingresa tu WhatsApp', 'error'); return; }
+  if (!sucursal) { showToast('Selecciona una sucursal', 'error'); return; }
+  if (carritoServicios.length === 0) { showToast('Selecciona al menos un servicio', 'error'); return; }
+  if (!fecha) { showToast('Selecciona una fecha', 'error'); return; }
+
+  // Construir texto de servicios
+  var servicioTexto = carritoServicios.map(function(s){ return s.nombre; }).join(' + ');
+  var totalPrecio = carritoServicios.reduce(function(t,s){ return t + s.precio; }, 0);
+  var ahora = new Date();
+  var hoy = ahora.getFullYear() + '-' + String(ahora.getMonth()+1).padStart(2,'0') + '-' + String(ahora.getDate()).padStart(2,'0');
+  if (fecha < hoy) { showToast('No puedes agendar en fechas pasadas', 'error'); return; }
+  var horaSelect = document.getElementById('f-hora');
+  var horaVal = horaSelect.options[horaSelect.selectedIndex] ? horaSelect.options[horaSelect.selectedIndex].text : '';
+  if (horaVal.indexOf('No hay') !== -1 || horaVal.indexOf('Selecciona') !== -1 || horaVal.indexOf('Cargando') !== -1 || horaSelect.options[horaSelect.selectedIndex].disabled) {
+    showToast('No hay horarios disponibles para esta fecha', 'error');
+    return;
+  }
+
+  var btn = document.getElementById('btn-confirmar');
+  btn.disabled = true;
+  btn.textContent = 'Guardando...';
+
+  db.collection('spas').doc('terracotta').collection('citas').add({
+    uid: usuarioActual.tel,
+    nombre: nombre,
+    whatsapp: whatsapp,
+    servicio: servicioTexto,
+    servicios: carritoServicios,
+    precio: totalPrecio,
+    profesional: profesional,
+    sucursal: sucursal,
+    fecha: fecha,
+    hora: hora,
+    estado: 'pendiente',
+    puntos: 10,
+    creadoEn: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function() {
+    db.collection('spas').doc('terracotta').collection('clientes').doc(usuarioActual.tel).set({
+      nombre: nombre, whatsapp: whatsapp
+    }, { merge: true });
+    showToast('Cita agendada! Te confirmamos pronto', 'success');
+    carritoServicios = [];
+    renderCarrito();
+    document.getElementById('f-fecha').value = '';
+  }).catch(function() {
+    showToast('Error al guardar. Intenta de nuevo.', 'error');
+  }).finally(function() {
+    btn.disabled = false;
+    btn.textContent = 'Confirmar cita';
+  });
+}
+</script>
+
+<!-- LOGIN OVERLAY -->
+<div id="login-overlay" style="display:none;position:fixed;inset:0;background:rgba(26,26,26,0.92);z-index:9999;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#111111;border-radius:24px;padding:32px 24px;width:100%;max-width:380px;position:relative;">
+    <button onclick="document.getElementById('login-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#9A8F7A;line-height:1;">✕</button>
+
+    <div id="paso-telefono">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:2.5rem;margin-bottom:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:8px;">Bienvenida</div>
+        <div style="font-size:0.85rem;color:#9A8F7A;line-height:1.6">Ingresa tu número de celular para agendar tu cita y acumular puntos</div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:0.72rem;color:#9A8F7A;text-transform:uppercase;letter-spacing:0.5px;font-weight:500;margin-bottom:7px;">Número de celular</label>
+        <div style="display:flex;gap:8px;">
+          <select id="login-pais" style="padding:13px 10px;border:1.5px solid #8B6914;border-radius:12px;font-size:0.85rem;color:#F5F0E8;background:#0A0A0A;font-family:'Nunito Sans',sans-serif;outline:none;-webkit-appearance:none;appearance:none;flex-shrink:0;width:110px;cursor:pointer;">
+            <option value="+57">🇨🇴 +57</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+52">🇲🇽 +52</option>
+            <option value="+34">🇪🇸 +34</option>
+            <option value="+58">🇻🇪 +58</option>
+            <option value="+507">🇵🇦 +507</option>
+            <option value="+593">🇪🇨 +593</option>
+            <option value="+51">🇵🇪 +51</option>
+            <option value="+56">🇨🇱 +56</option>
+            <option value="+54">🇦🇷 +54</option>
+          </select>
+          <input id="login-telefono" type="tel" placeholder="300 000 0000" autocomplete="tel" inputmode="numeric" maxlength="12" oninput="formatearTelefono(this)" style="flex:1;padding:13px 16px;border:1.5px solid #8B6914;border-radius:12px;font-size:0.9rem;color:#F5F0E8;background:#0A0A0A;font-family:'Nunito Sans',sans-serif;outline:none;-webkit-appearance:none;letter-spacing:1px;">
+        </div>
+      </div>
+      <button id="btn-enviar-codigo" onclick="enviarCodigo()" style="width:100%;background:#C9A84C;color:#ffffff;border:none;border-radius:50px;padding:15px;font-size:0.92rem;font-weight:500;cursor:pointer;font-family:'Nunito Sans',sans-serif;margin-bottom:12px;">Enviar codigo por WhatsApp</button>
+      <p style="font-size:0.72rem;color:#b0a0a0;text-align:center;margin:0;line-height:1.5;">Al continuar aceptas nuestra <a href="#" onclick="abrirPolitica();return false;" style="color:#C9A84C;text-decoration:underline;">política de tratamiento de datos personales</a></p>
+      <div style="text-align:center;font-size:0.78rem;color:#9A8F7A;">Te enviaremos un codigo por WhatsApp</div>
+    </div>
+
+    <div id="paso-codigo" style="display:none;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:2.5rem;margin-bottom:12px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:8px;">Verifica tu número</div>
+        <div style="font-size:0.85rem;color:#9A8F7A;line-height:1.6">Ingresa el codigo de 6 digitos que te llego por WhatsApp</div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:0.72rem;color:#9A8F7A;text-transform:uppercase;letter-spacing:0.5px;font-weight:500;margin-bottom:7px;">Codigo de verificacion</label>
+        <input id="login-codigo" type="number" placeholder="123456" style="width:100%;padding:13px 16px;border:1.5px solid #8B6914;border-radius:12px;font-size:1.2rem;color:#F5F0E8;background:#0A0A0A;font-family:'Nunito Sans',sans-serif;outline:none;-webkit-appearance:none;text-align:center;letter-spacing:8px;">
+      </div>
+      <button id="btn-verificar" onclick="verificarCodigo()" style="width:100%;background:#C9A84C;color:#ffffff;border:none;border-radius:50px;padding:15px;font-size:0.92rem;font-weight:500;cursor:pointer;font-family:'Nunito Sans',sans-serif;margin-bottom:12px;">Verificar codigo</button>
+      <button onclick="document.getElementById('paso-telefono').style.display='block';document.getElementById('paso-codigo').style.display='none';var b=document.getElementById('btn-enviar-codigo');b.disabled=false;b.textContent='Enviar codigo por WhatsApp';" style="width:100%;background:transparent;color:#9A8F7A;border:1px solid #8B6914;border-radius:50px;padding:12px;font-size:0.85rem;cursor:pointer;font-family:'Nunito Sans',sans-serif;">Cambiar número</button>
+    </div>
+
+    <!-- PASO 3: DATOS PERSONALES (solo primera vez) -->
+    <div id="paso-datos" style="display:none;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:2.5rem;margin-bottom:12px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg></div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:8px;">Un ultimo paso</div>
+        <div style="font-size:0.85rem;color:#9A8F7A;line-height:1.6">Cuentanos un poco mas sobre ti para personalizar tu experiencia</div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:0.72rem;color:#9A8F7A;text-transform:uppercase;letter-spacing:0.5px;font-weight:500;margin-bottom:7px;">Tu nombre</label>
+        <input id="reg-nombre" type="text" placeholder="Maria Camila Perez" style="width:100%;padding:13px 16px;border:1.5px solid #8B6914;border-radius:12px;font-size:0.9rem;color:#F5F0E8;background:#0A0A0A;font-family:'Nunito Sans',sans-serif;outline:none;-webkit-appearance:none;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:0.72rem;color:#9A8F7A;text-transform:uppercase;letter-spacing:0.5px;font-weight:500;margin-bottom:7px;">Fecha de cumpleanos (opcional)</label>
+        <input id="reg-cumple" type="date" style="width:100%;padding:13px 16px;border:1.5px solid #8B6914;border-radius:12px;font-size:0.9rem;color:#F5F0E8;background:#0A0A0A;font-family:'Nunito Sans',sans-serif;outline:none;-webkit-appearance:none;">
+      </div>
+      <button id="btn-guardar-datos" onclick="guardarDatosRegistro()" style="width:100%;background:#C9A84C;color:#ffffff;border:none;border-radius:50px;padding:15px;font-size:0.92rem;font-weight:500;cursor:pointer;font-family:'Nunito Sans',sans-serif;">Guardar y entrar</button>
+    </div>
+
+    <div style="text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid #8B6914;">
+      <a href="https://maposapp.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+        <span style="font-size:0.72rem;color:#aaaaaa;">Powered by</span>
+        <img src="maposnegro.png" style="height:60px;vertical-align:middle;" alt="MApos">
+      </a>
+    </div>
+
+  </div>
+</div>
+
+</body>
 </html>
