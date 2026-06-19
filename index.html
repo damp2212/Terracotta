@@ -1009,7 +1009,7 @@ function cargarServicios(callback) {
   var categorias = ['manos', 'pies', 'otros'];
   var nombresCat = { manos: 'Manos', pies: 'Pies', otros: 'Otros' };
   db.collection('spas').doc('terracotta').collection('servicios').where('activo', '==', true).get().then(function(snapshot) {
-    var porCategoria = { manos: [], pies: [], otros: [] };
+    var porCategoria = { 'unas': [], 'cejas-pestanas': [], 'depilacion': [], 'cabello': [], 'maquillaje': [], 'spa': [], 'barberia': [] };
     snapshot.forEach(function(doc) {
       var d = doc.data();
       if (porCategoria[d.categoria]) porCategoria[d.categoria].push(d);
