@@ -1033,7 +1033,7 @@ function cargarServicios(callback) {
         var emoji = emojis[cat][i % emojis[cat].length];
         var precio = s.precio ? '$' + s.precio.toLocaleString('es-CO') : 'Consultar';
         var duracion = s.duracion ? '⏱ ' + s.duracion + ' min' : '';
-        var imgHtml = s.foto ? '<div class="svc-img" style="background-image:url(' + s.foto + ');background-size:cover;background-position:top;"></div>' : '<div class="svc-img si' + ((i%6)+1) + '">' + emoji + '</div>';
+        var imgHtml = s.foto ? '<div class="svc-img" style="background-image:url(' + s.foto + ');background-size:cover;background-position:center;height:100%;min-height:250px;"></div>' : '<div class="svc-img si' + ((i%6)+1) + '">' + emoji + '</div>';
         var nombreFormato = s.nombre;
         grid.innerHTML += '<div class="service-card">' + imgHtml + '<div class="svc-body"><div class="svc-name">' + s.nombre + '</div><div class="svc-desc">' + (s.descripcion || '') + '</div><div class="svc-foot"><div class="svc-price">' + precio + '</div><div class="svc-dur">' + duracion + '</div></div><button class="btn-ag" style="margin-top:12px;" onclick="seleccionarServicio(\'' + nombreFormato.replace(/'/g, "\\'") + '\',' + (s.precio||0) + ',' + (s.duracion||60) + ')">Agendar</button></div></div>';
       });
