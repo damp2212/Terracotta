@@ -985,7 +985,7 @@ function cargarInspiracion() {
       var d = doc.data();
       var card = '<div class="inspo-card">';
       if (d.foto) {
-        card += '<div class="inspo-img" style="background-image:url(' + d.foto + ');background-size:cover;background-position:center;"></div>';
+        card += '<div class="inspo-img" style="background-image:url(' + d.foto + ');background-size:cover;background-position:top;"></div>';
       } else {
         card += '<div class="inspo-img"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12c0 4 1.5 7 4 7s4-3 4-7"/></svg></div>';
       }
@@ -1033,7 +1033,7 @@ function cargarServicios(callback) {
         var emoji = emojis[cat][i % emojis[cat].length];
         var precio = s.precio ? '$' + s.precio.toLocaleString('es-CO') : 'Consultar';
         var duracion = s.duracion ? '⏱ ' + s.duracion + ' min' : '';
-        var imgHtml = s.foto ? '<div class="svc-img" style="background-image:url(' + s.foto + ');background-size:cover;background-position:center;"></div>' : '<div class="svc-img si' + ((i%6)+1) + '">' + emoji + '</div>';
+        var imgHtml = s.foto ? '<div class="svc-img" style="background-image:url(' + s.foto + ');background-size:cover;background-position:top;"></div>' : '<div class="svc-img si' + ((i%6)+1) + '">' + emoji + '</div>';
         var nombreFormato = s.nombre;
         grid.innerHTML += '<div class="service-card">' + imgHtml + '<div class="svc-body"><div class="svc-name">' + s.nombre + '</div><div class="svc-desc">' + (s.descripcion || '') + '</div><div class="svc-foot"><div class="svc-price">' + precio + '</div><div class="svc-dur">' + duracion + '</div></div><button class="btn-ag" style="margin-top:12px;" onclick="seleccionarServicio(\'' + nombreFormato.replace(/'/g, "\\'") + '\',' + (s.precio||0) + ',' + (s.duracion||60) + ')">Agendar</button></div></div>';
       });
