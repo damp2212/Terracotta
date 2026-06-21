@@ -14,13 +14,13 @@ body{font-family:'DM Sans',Georgia,sans-serif;background:#fdf8f5;min-height:100v
 .icon-err{background:#f8d7da}
 .icon-ok{background:#d4edda}
 .icon svg{width:36px;height:36px}
-.title{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:#1a1a1a;margin-bottom:10px}
+.title{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:#F5F0E8;margin-bottom:10px}
 .subtitle{font-size:0.9rem;color:#8a7a76;line-height:1.6;margin-bottom:28px}
 .detail{background:#f5ede6;border-radius:14px;padding:16px;margin-bottom:24px;text-align:left}
 .detail-row{display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:8px}
 .detail-row:last-child{margin-bottom:0}
 .detail-key{color:#8a7a76}
-.detail-val{font-weight:600;color:#1a1a1a}
+.detail-val{font-weight:600;color:#F5F0E8}
 .btn{display:block;border-radius:50px;padding:14px 28px;font-size:0.9rem;font-weight:500;margin-top:12px;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;width:100%}
 .btn-cancel{background:#f8d7da;color:#721c24}
 .btn-back{background:#7a3d35;color:#ffffff;text-decoration:none}
@@ -67,7 +67,7 @@ function mostrarConfirmacion(cita) {
       '<div class="detail-row"><span class="detail-key">Hora</span><span class="detail-val">' + (cita.hora || '') + '</span></div>' +
     '</div>' +
     '<button class="btn btn-cancel" onclick="confirmarCancelacion()">Si, cancelar mi cita</button>' +
-    '<a href="https://terracotasalonspa.com" class="btn btn-back" style="display:block;text-align:center;margin-top:10px">No, mantener cita</a>' +
+    '<a href="https://terracottasalonspa.com" class="btn btn-back" style="display:block;text-align:center;margin-top:10px">No, mantener cita</a>' +
     '<div class="powered">Powered by MApos</div>';
 }
 
@@ -77,14 +77,14 @@ function confirmarCancelacion() {
       '<div class="icon icon-err"><svg viewBox="0 0 24 24" fill="none" stroke="#721c24" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>' +
       '<div class="title">Cita cancelada</div>' +
       '<div class="subtitle">Tu cita fue cancelada. Esperamos verte pronto en Terracotta.</div>' +
-      '<a href="https://terracotasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
+      '<a href="https://terracottasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
       '<div class="powered">Powered by MApos</div>';
   }).catch(function() {
     document.getElementById('card').innerHTML =
       '<div class="icon icon-err"><svg viewBox="0 0 24 24" fill="none" stroke="#721c24" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>' +
       '<div class="title">Error</div>' +
       '<div class="subtitle">No pudimos cancelar tu cita. Intenta de nuevo.</div>' +
-      '<a href="https://terracotasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
+      '<a href="https://terracottasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
       '<div class="powered">Powered by MApos</div>';
   });
 }
@@ -94,7 +94,7 @@ function mostrarError(msg) {
     '<div class="icon icon-err"><svg viewBox="0 0 24 24" fill="none" stroke="#721c24" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>' +
     '<div class="title">Algo salio mal</div>' +
     '<div class="subtitle">' + msg + '</div>' +
-    '<a href="https://terracotasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
+    '<a href="https://terracottasalonspa.com" class="btn btn-back" style="display:block;text-align:center">Volver al inicio</a>' +
     '<div class="powered">Powered by MApos</div>';
 }
 
