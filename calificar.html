@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Califica tu experiencia — GlamNails</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',Georgia,sans-serif;background:#fdf8f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#fff;border-radius:24px;padding:40px 28px;width:100%;max-width:420px;text-align:center;box-shadow:0 8px 32px rgba(122,61,53,0.1)}
+.avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#f9e4dc,#e8c4b8);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:2rem;border:3px solid #e8c4b8}
+.title{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:8px}
+.subtitle{font-size:0.88rem;color:#8a7a76;line-height:1.6;margin-bottom:28px}
+.pro-name{font-weight:600;color:#7a3d35}
+.stars-wrap{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+.star{font-size:2.8rem;cursor:pointer;transition:transform 0.15s;color:#e0e0e0;line-height:1}
+.star.active{color:#f4c542}
+.star:hover{transform:scale(1.2)}
+.rating-label{font-size:0.85rem;color:#8a7a76;margin-bottom:20px;min-height:20px}
+.comment-group{margin-bottom:20px;text-align:left}
+.comment-label{display:block;font-size:0.72rem;color:#8a7a76;text-transform:uppercase;letter-spacing:0.5px;font-weight:500;margin-bottom:8px}
+textarea{width:100%;padding:13px 16px;border:1.5px solid #e8c4b8;border-radius:12px;font-size:0.88rem;color:#F5F0E8;background:#fdf8f5;font-family:'DM Sans',sans-serif;outline:none;resize:none;height:100px;-webkit-appearance:none}
+textarea:focus{border-color:#c27b6e}
+.btn-enviar{width:100%;background:#7a3d35;color:#fff;border:none;border-radius:50px;padding:15px;font-size:0.92rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.btn-enviar:disabled{background:#cccccc;cursor:not-allowed}
+.powered{font-size:0.72rem;color:#cccccc;margin-top:20px}
+.gracias{display:none}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="card">
+
+  <!-- FORMULARIO -->
+  <div id="form-calificacion">
+    <div class="avatar" id="pro-avatar">💅</div>
+    <div class="title">Como te fue?</div>
+    <div class="subtitle">Califica tu experiencia con <span class="pro-name" id="pro-nombre-display">la profesional</span></div>
+
+    <div class="stars-wrap" id="stars-wrap">
+      <span class="star" data-val="1" onclick="seleccionarEstrellas(1)">★</span>
+      <span class="star" data-val="2" onclick="seleccionarEstrellas(2)">★</span>
+      <span class="star" data-val="3" onclick="seleccionarEstrellas(3)">★</span>
+      <span class="star" data-val="4" onclick="seleccionarEstrellas(4)">★</span>
+      <span class="star" data-val="5" onclick="seleccionarEstrellas(5)">★</span>
+    </div>
+    <div class="rating-label" id="rating-label">Toca las estrellas para calificar</div>
+
+    <div class="comment-group">
+      <label class="comment-label">Comentario (opcional)</label>
+      <textarea id="comentario" placeholder="Cuentanos como fue tu experiencia..."></textarea>
+    </div>
+
+    <button class="btn-enviar" id="btn-enviar" onclick="enviarCalificacion()" disabled>Enviar calificacion</button>
+    <div class="powered">
+      <a href="https://maposapp.com" target="_blank" style="text-decoration:none;opacity:0.5;display:inline-flex;align-items:center;gap:4px;">
+        Powered by <img src="maposnegro.png" style="height:56px;vertical-align:middle;margin-left:4px" alt="MApos">
+      </a>
+    </div>
+  </div>
+
+  <!-- GRACIAS -->
+  <div class="gracias" id="gracias">
+    <div style="font-size:3rem;margin-bottom:16px">🌸</div>
+    <div class="title">Gracias por tu opinion!</div>
+    <div class="subtitle" style="margin-bottom:8px">Tu calificacion ayuda a mejorar el servicio y a reconocer el trabajo de nuestras profesionales.</div>
+    <div class="powered" style="margin-top:24px">
+      <a href="https://maposapp.com" target="_blank" style="text-decoration:none;opacity:0.5;display:inline-flex;align-items:center;gap:4px;">
+        Powered by <img src="maposnegro.png" style="height:56px;vertical-align:middle;margin-left:4px" alt="MApos">
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyBBZInWQZVJyBTP5TG8MrTBOfe7UQFR5uU",
+  authDomain: "mapos-spas.firebaseapp.com",
+  projectId: "mapos-spas",
+  storageBucket: "mapos-spas.firebasestorage.app",
+  messagingSenderId: "704720438670",
+  appId: "1:704720438670:web:fd94574e51e97964cd10df"
+});
+
+var db = firebase.firestore();
+var params = new URLSearchParams(window.location.search);
+var citaId = params.get('id');
+var spaId = params.get('spa') || 'terracotta';
+var calificacionSeleccionada = 0;
+var citaData = null;
+
+var labels = ['', 'Muy malo', 'Malo', 'Regular', 'Bueno', 'Excelente!'];
+
+// Cargar datos de la cita
+if (citaId) {
+  db.collection('spas').doc(spaId).collection('citas').doc(citaId).get().then(function(doc) {
+    if (doc.exists) {
+      citaData = doc.data();
+      if (citaData.profesional) {
+        document.getElementById('pro-nombre-display').textContent = citaData.profesional;
+      }
+    }
+  });
+}
+
+function seleccionarEstrellas(val) {
+  calificacionSeleccionada = val;
+  var stars = document.querySelectorAll('.star');
+  stars.forEach(function(s, i) {
+    s.classList.toggle('active', i < val);
+  });
+  document.getElementById('rating-label').textContent = labels[val];
+  document.getElementById('btn-enviar').disabled = false;
+}
+
+// Hover effect
+document.querySelectorAll('.star').forEach(function(star) {
+  star.addEventListener('mouseover', function() {
+    var val = parseInt(this.dataset.val);
+    document.querySelectorAll('.star').forEach(function(s, i) {
+      s.classList.toggle('active', i < val);
+    });
+    document.getElementById('rating-label').textContent = labels[val];
+  });
+  star.addEventListener('mouseout', function() {
+    document.querySelectorAll('.star').forEach(function(s, i) {
+      s.classList.toggle('active', i < calificacionSeleccionada);
+    });
+    document.getElementById('rating-label').textContent = calificacionSeleccionada ? labels[calificacionSeleccionada] : 'Toca las estrellas para calificar';
+  });
+});
+
+function enviarCalificacion() {
+  if (!calificacionSeleccionada) return;
+  var comentario = document.getElementById('comentario').value.trim();
+  var btn = document.getElementById('btn-enviar');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  var profesional = citaData ? citaData.profesional : '';
+  var clientaNombre = citaData ? (citaData.nombre || '') : '';
+
+  // Guardar calificacion en Firestore
+  var promesas = [];
+
+  // 1. Guardar en coleccion de calificaciones de la profesional
+  if (profesional) {
+    promesas.push(
+      db.collection('spas').doc(spaId).collection('calificaciones').add({
+        profesional: profesional,
+        citaId: citaId,
+        clientaNombre: clientaNombre,
+        estrellas: calificacionSeleccionada,
+        comentario: comentario,
+        fecha: new Date().toISOString().split('T')[0],
+        creadoEn: firebase.firestore.FieldValue.serverTimestamp()
+      })
+    );
+
+    // 2. Actualizar promedio en el perfil de la profesional
+    promesas.push(
+      db.collection('spas').doc(spaId).collection('calificaciones')
+        .where('profesional', '==', profesional)
+        .get().then(function(snap) {
+          var total = calificacionSeleccionada;
+          var count = 1;
+          snap.forEach(function(d) { total += d.data().estrellas; count++; });
+          var promedio = Math.round((total / count) * 10) / 10;
+          // Buscar profesional y actualizar
+          return db.collection('spas').doc(spaId).collection('profesionales')
+            .where('nombre', '==', profesional).get().then(function(pSnap) {
+              pSnap.forEach(function(pd) {
+                pd.ref.update({ calificacion: promedio, totalCalificaciones: count });
+              });
+            });
+        })
+    );
+  }
+
+  // 3. Marcar cita como calificada
+  promesas.push(
+    db.collection('spas').doc(spaId).collection('citas').doc(citaId).update({ calificada: true })
+  );
+
+  Promise.all(promesas).then(function() {
+    document.getElementById('form-calificacion').style.display = 'none';
+    document.getElementById('gracias').style.display = 'block';
+  }).catch(function(e) {
+    console.error(e);
+    btn.disabled = false;
+    btn.textContent = 'Enviar calificacion';
+  });
+}
+</script>
+</body>
+</html>
